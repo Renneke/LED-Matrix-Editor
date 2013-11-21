@@ -1,0 +1,17 @@
+INPUT(
+./release/main.o
+./release/mainwindow.o
+./release/frame.o
+./release/framemanager.o
+./release/timemanager.o
+./release/ledmatrix.o
+./release/letter.o
+./release/addtextanimationdialog.o
+./release/savedialog.o
+./release/addworddialog.o
+./release/moc_mainwindow.o
+./release/moc_ledmatrix.o
+./release/moc_addtextanimationdialog.o
+./release/moc_savedialog.o
+./release/moc_addworddialog.o
+);

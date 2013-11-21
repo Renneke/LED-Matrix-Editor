@@ -62,7 +62,7 @@ void MainWindow::vCreateTimeline()
     pWidget->setLayout(pLayout);
     ui->scrollArea->setWidget(pWidget);
 
-    ui->scrollArea->horizontalScrollBar()->setValue((p_FrameManager.iGetCurrentFrame()-3)*150);
+    ui->scrollArea->horizontalScrollBar()->setValue((p_FrameManager.iGetCurrentFrame()-3)*160);
 
     ui->horizontalScrollBar->setRange(0, p_FrameManager.iGetNumFrames()-1);
     ui->horizontalScrollBar->setValue(p_FrameManager.iGetCurrentFrame());
@@ -109,9 +109,10 @@ void MainWindow::keyPressEvent(QKeyEvent *k)
     }
     if(k->key()==0x52 && p_FrameManager.iGetNumFrames()>1) // r
     {
+        delete p_Map[p_FrameManager.pGetCurrentFrame()];
         p_FrameManager.vDeleteFrame(p_FrameManager.iGetCurrentFrame());
         ui->widget->vSetFrame(p_FrameManager.pGetCurrentFrame());
-        vCreateTimeline();
+        //vCreateTimeline();
         ui->widget->update();
     }
     if(k->key()==0x46) // f fill
@@ -135,7 +136,6 @@ void MainWindow::on_horizontalScrollBar_valueChanged(int value)
 
     p_FrameManager.bSetCurrentFrame(value);
     ui->widget->vSetFrame(p_FrameManager.pGetCurrentFrame());
-    //vCreateTimeline();
 
     p_Map[p_FrameManager.pGetCurrentFrame()]->vSetFrame( p_FrameManager.pGetCurrentFrame(), true );
     p_Map[p_FrameManager.pGetCurrentFrame()]->update();
@@ -143,6 +143,7 @@ void MainWindow::on_horizontalScrollBar_valueChanged(int value)
     ui->widget->update();
     ui->scrollArea->horizontalScrollBar()->setValue((value-3)*160);
     ui->spinBox->setValue(p_FrameManager.pGetCurrentFrame()->iGetDelay());
+    ui->lcdNumber->display(p_FrameManager.iGetCurrentFrame());
 }
 
 void MainWindow::on_actionExit_triggered()

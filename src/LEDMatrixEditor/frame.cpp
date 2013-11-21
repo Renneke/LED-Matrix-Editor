@@ -78,6 +78,7 @@ ostream &Frame::saveStream(ostream &stream)
 istream &Frame::readStream(istream &stream)
 {
     stream.read((char*)&p_iDelay, sizeof(unsigned short));
+    unsigned int pos = stream.tellg();
     for(int i=0;i<FRAME;i++)
         stream.read((char*)&p_pFrame[i], sizeof(unsigned char));
     return stream;

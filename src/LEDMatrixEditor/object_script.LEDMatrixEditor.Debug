@@ -1,0 +1,17 @@
+INPUT(
+./debug/main.o
+./debug/mainwindow.o
+./debug/frame.o
+./debug/framemanager.o
+./debug/timemanager.o
+./debug/ledmatrix.o
+./debug/letter.o
+./debug/addtextanimationdialog.o
+./debug/savedialog.o
+./debug/addworddialog.o
+./debug/moc_mainwindow.o
+./debug/moc_ledmatrix.o
+./debug/moc_addtextanimationdialog.o
+./debug/moc_savedialog.o
+./debug/moc_addworddialog.o
+);
